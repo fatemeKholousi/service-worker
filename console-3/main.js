@@ -7,14 +7,20 @@ const myWorker=new Worker("service-worker.js")
 
 forBtn.addEventListener("click",(e)=>{
 myWorker.postMessage('Hey')
+myWorker.onmessage=function(event){
+    alert(event?.data)
+    console.log(event)
+}
 
+
+// let sum=0
+// for(let i=0;i<100000000000000;i++){
+//     sum+=i
+// }
 
 })
 
- myWorker.onmessage=function(event){
-     alert(event?.data)
-     console.log(event)
- }
+
 
 bgBtn.addEventListener('click',()=>{
         var x = Math.floor(Math.random() * 256);
