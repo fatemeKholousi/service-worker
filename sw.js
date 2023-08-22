@@ -51,6 +51,7 @@ const CACHE_NAME = "offline";
 const OFFLINE_URL = "offline.html";
 
 self.addEventListener("install", (event) => {
+  console.log('installed',event)
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
@@ -64,7 +65,9 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", (event) => { 
+  console.log('activated',event)
+
   event.waitUntil(
     (async () => {
       // Enable navigation preload if it's supported.

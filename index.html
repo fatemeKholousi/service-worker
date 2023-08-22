@@ -76,6 +76,13 @@ margin-top: 100px;
       </div>
     
     <script src="main.js">
-    </script>
+      </script>
+      <script>
+          if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./sw.js').then(()=>
+        console.log('its registered'))
+    }
+      </script>
+
 </body>
 </html>
